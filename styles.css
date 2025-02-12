@@ -1,0 +1,52 @@
+body {
+    height: 100vh;
+    width: 70vw;
+    margin: 0px 15vw 0 15vw;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    height: 40vh;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+form div label {
+    text-align: center;
+}
+
+#book-grid,
+#header-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+a {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
