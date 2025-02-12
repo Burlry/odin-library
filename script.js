@@ -27,10 +27,10 @@ const pagesGet = document.getElementById('pages-input');
 const readGet = document.getElementById('read-input');
 
 const myLibrary = [{
-  title: 'nugget',
-  author: 'chimp slimly',
-  pages: 69,
-  read: 'every damn day'
+  title: 'Dune',
+  author: 'Frank Herbert',
+  pages: 412,
+  read: 'Read'
 }];
 
 function Book(title, author, pages, read) {
@@ -76,22 +76,34 @@ function displayBooks() {
     const authorDiv = document.createElement('p');
     const pagesDiv = document.createElement('p');
     const readDiv = document.createElement('p');
+    const buttonDiv = document.createElement('div');
+    const toggleButton = document.createElement('button');
     const removeButton = document.createElement('button');
 
     titleDiv.textContent = myLibrary[i].title;
     authorDiv.textContent = myLibrary[i].author;
     pagesDiv.textContent = myLibrary[i].pages;
     readDiv.textContent = myLibrary[i].read;
+    toggleButton.textContent = "Toggle Read"
     removeButton.textContent = "Remove";
     
     bookGrid.appendChild(titleDiv);
     bookGrid.appendChild(authorDiv);
     bookGrid.appendChild(pagesDiv);
     bookGrid.appendChild(readDiv);
-    bookGrid.appendChild(removeButton);
+
+    bookGrid.appendChild(buttonDiv);
+    
+    buttonDiv.appendChild(toggleButton);
+    buttonDiv.appendChild(removeButton);
 
     removeButton.addEventListener('click', () => {
       removeBooks(i);
+      displayBooks();
+    })
+
+    toggleButton.addEventListener('click', () => {
+      toggleRead(i);
       displayBooks();
     })
   }
@@ -102,8 +114,12 @@ function removeBooks(i) {
   myLibrary.splice(i, (i + 1))
 };
 
-function toggleRead() {
-
+function toggleRead(i) {
+  if (myLibrary[i].read === "Read") {
+    myLibrary[i].read = "Not Read"
+  } else {
+    myLibrary[i].read = "Read"
+  }
 }
 
 displayBooks();
